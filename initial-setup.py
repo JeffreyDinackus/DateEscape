@@ -2,7 +2,7 @@
 
 import os
 
-def save_phone_numbers(number1, number2):
+def save_phone_numbers(number1, number2, account_sid, auth_token):
     # Save phone numbers to files
     with open('my_phone.txt', 'w') as file1:
         file1.write(number1)
@@ -23,6 +23,9 @@ def save_phone_numbers(number1, number2):
     os.environ['auth_token'] = auth_token
     
 # Prompt the user for phone numbers
+
+print('Welcome to DateEscape!')
+print('Please enter your info EXACTLY or it will not work.')
 number1 = input("Enter the phone number you would like to call: ")
 number2 = input("Enter your Twilio phone number: ")
 account_sid = input("Enter your Twilio Account Sid: ")
