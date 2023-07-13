@@ -3,10 +3,10 @@
 #these imports for for twilio
 import os
 # from twilio.rest import Client
-account_sid = os.environ['TWILIO_ACCOUNT_SID', 'default_value']
-auth_token = os.environ['TWILIO_AUTH_TOKEN', 'default_value']
+account_sid = os.environ.get('TWILIO_ACCOUNT_SID', 'default_value')
+auth_token = os.environ.get('TWILIO_AUTH_TOKEN', 'default_value')
 MY_PHONE = os.environ.get('MY_PHONE', 'default_value')
-TWILIO_PHONE = os.environ['TWILIO_PHONE', 'default_value']
+auth_token = os.environ.get('TWILIO_AUTH_TOKEN', 'default_value')
 
 # if env var fails, import from file, otherwise give user a msg and end the script.
 
