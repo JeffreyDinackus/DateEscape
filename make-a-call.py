@@ -32,6 +32,7 @@ if my_phone == 'default_value' or twilio_phone == 'default_value' or account_sid
     print("Please run the initial_setup.py script to set up your phone numbers.")
     exit()
 
+# check if the user entered now, if so, execute immeadiately.
 
 print("when would you like to be called and texted?")
 now = input("If NOW type :")
@@ -49,17 +50,15 @@ def start_timer(duration):
     print("Timer ended.")
 
 # Prompt the user for the duration of the timer
-minutes = input("How many minutes from now would you like to be called? ")
-hours = input("How many hours from now would you like to be called? ")
-
+minutes = int(input("How many minutes from now would you like to be called? "))
+hours = int(input("How many hours from now would you like to be called? "))
 
 # Calculate the total duration in seconds
-duration = (hours * 3600) + (minutes * 60)
+total_seconds = (hours * 3600) + (minutes * 60)
 
 # Start the timer
-start_timer(duration)
+start_timer(total_seconds)
 
-# check if the user entered now, if so, execute immeadiately.
 
 
 
