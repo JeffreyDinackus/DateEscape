@@ -29,7 +29,7 @@ def read_twilio_number():
         with open('twilio_phone.txt', 'r') as file1:
             twilio_phone = file1.read()
     except FileNotFoundError:
-        print("Phone number files not found.")
+        print("Twilio phone number files not found.")
         print("Please run the initial_setup.py script to set up your phone numbers.")
         exit()
     except Exception as e:
@@ -43,6 +43,7 @@ def read_twilio_number():
 # Call the function to read phone numbers
 
 if MY_PHONE == 'default_value':
+    print("test")
     phone_number1 = read_my_phone_numbers()
 
 if TWILIO_PHONE == 'default_value':
