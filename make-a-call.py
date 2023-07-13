@@ -3,10 +3,10 @@ import os
 def read_my_phone_numbers():
     try:
         with open('my_phone.txt', 'r') as file1:
-            phone_number1 = file1.read().strip()
+            my_phone = file1.read().strip()
         
         with open('twilio_phone.txt', 'r') as file2:
-            phone_number2 = file2.read().strip()
+            twilio_phone = file2.read().strip()
         
         with open('account_sid.txt', 'r') as file3:
             account_sid = file3.read().strip()
