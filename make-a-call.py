@@ -33,12 +33,31 @@ if my_phone == 'default_value' or twilio_phone == 'default_value' or account_sid
     exit()
 
 
+print("when would you like to be called and texted?")
+now = input("If NOW type :")
+if now == "now" or now == "Now" or now == "NOW":
+    print("calling now")
+    # make Twilio API requests
 
 
-# Print the phone numbers
-print("Phone Number 1:", my_phone)
-print("Phone Number 2:", twilio_phone)
 
+import time
+
+def start_timer(duration):
+    print("Timer started for", duration)
+    time.sleep(duration)
+    print("Timer ended.")
+
+# Prompt the user for the duration of the timer
+minutes = input("How many minutes from now would you like to be called? ")
+hours = input("How many hours from now would you like to be called? ")
+
+
+# Calculate the total duration in seconds
+duration = (hours * 3600) + (minutes * 60)
+
+# Start the timer
+start_timer(duration)
 
 # check if the user entered now, if so, execute immeadiately.
 
