@@ -36,8 +36,8 @@ if my_phone == 'default_value' or twilio_phone == 'default_value' or account_sid
 
 
 # Print the phone numbers
-print("Phone Number 1:", phone_number1)
-print("Phone Number 2:", phone_number2)
+print("Phone Number 1:", my_phone)
+print("Phone Number 2:", twilio_phone)
 
 
 # check if the user entered now, if so, execute immeadiately.
