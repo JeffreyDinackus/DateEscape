@@ -1,4 +1,5 @@
 import os
+from twilio.rest import Client
 
 def read_my_phone_numbers():
     try:
@@ -32,22 +33,87 @@ if my_phone == 'default_value' or twilio_phone == 'default_value' or account_sid
     print("Please run the initial_setup.py script to set up your phone numbers.")
     exit()
 
-# check if the user entered now, if so, execute immeadiately.
 
+client = Client(account_sid, auth_token)
+
+
+# check if the user entered now, if so, execute immeadiately.
 print("when would you like to be called and texted?")
 now = input("If NOW type :")
 if now == "now" or now == "Now" or now == "NOW":
     print("calling now")
     # make Twilio API requests
+    call = client.calls.create(
+            #this is hosted by twilio assets static hosting. 
+            url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
+            to=my_phone,
+            from_=twilio_phone
+            )
+    message = client.messages \
+    .create(
+            body='GET HOME RIGHT NOW.',
+            #hidden for privacy
+            from_=twilio_phone,
+            to=my_phone
+    )
+    time.sleep(10)
+    message = client.messages \
+    .create(
+            body='GET HOME NOW.',
+            #hidden for privacy
+            from_=twilio_phone,
+            to=my_phone
+    )
+
+    time.sleep(10)
+    message = client.messages \
+    .create(
+            body='YOU WONT DRIVE FOR A MONTH',
+            #hidden for privacy
+            from_=twilio_phone,
+            to=my_phone
+    )
 
 
 
 import time
 
 def start_timer(duration):
-    print("Timer started for", duration)
+    print("Timer started for", duration, "seconds.")
     time.sleep(duration)
     print("Timer ended.")
+    print("calling now")
+    # make Twilio API requests
+    call = client.calls.create(
+            #this is hosted by twilio assets static hosting. 
+            url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
+            to=my_phone,
+            from_=twilio_phone
+            )
+    message = client.messages \
+    .create(
+            body='GET HOME RIGHT NOW.',
+            #hidden for privacy
+            from_=twilio_phone,
+            to=my_phone
+    )
+    time.sleep(10)
+    message = client.messages \
+    .create(
+            body='GET HOME NOW.',
+            #hidden for privacy
+            from_=twilio_phone,
+            to=my_phone
+    )
+
+    time.sleep(10)
+    message = client.messages \
+    .create(
+            body='YOU WONT DRIVE FOR A MONTH',
+            #hidden for privacy
+            from_=twilio_phone,
+            to=my_phone
+    )
 
 # Prompt the user for the duration of the timer
 minutes = int(input("How many minutes from now would you like to be called? "))
@@ -59,8 +125,5 @@ total_seconds = (hours * 3600) + (minutes * 60)
 # Start the timer
 start_timer(total_seconds)
 
-
-
-
-
 # make Twilio API requests
+
