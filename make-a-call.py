@@ -3,9 +3,9 @@
 #these imports for for twilio
 import os
 # from twilio.rest import Client
-account_sid = os.environ.get('TWILIO_ACCOUNT_SID', 'default_value')
-auth_token = os.environ.get('TWILIO_AUTH_TOKEN', 'default_value')
 MY_PHONE = os.environ.get('MY_PHONE', 'default_value')
+TWILIO_PHONE = os.environ.get('TWILIO_PHONE', 'default_value')
+account_sid = os.environ.get('TWILIO_ACCOUNT_SID', 'default_value')
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN', 'default_value')
 
 # if env var fails, import from file, otherwise give user a msg and end the script.
@@ -44,10 +44,12 @@ def read_twilio_number():
 
 if MY_PHONE == 'default_value':
     phone_number1 = read_my_phone_numbers()
-    
-    exit()
 
-phone_number2 = read_twilio_number()
+if TWILIO_PHONE == 'default_value':
+    phone_number2 = read_twilio_number()
+
+
+
 
 # Print the phone numbers
 print("Phone Number 1:", phone_number1)
