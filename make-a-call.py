@@ -114,6 +114,7 @@ def start_timer(duration):
             from_=twilio_phone,
             to=my_phone
     )
+    exit()
 
 # Prompt the user for the duration of the timer
 minutes = int(input("How many minutes from now would you like to be called? "))
