@@ -16,11 +16,11 @@ def save_phone_numbers(number1, number2, account_sid, auth_token):
     with open('auth_token.txt', 'w') as file4:
         file4.write(auth_token)
 
-    # Set phone numbers as environment variables
-    os.environ['MY_PHONE'] = number1
-    os.environ['TWILIO_PHONE'] = number2
-    os.environ['account_sid'] = account_sid
-    os.environ['auth_token'] = auth_token
+    # # Set phone numbers as environment variables
+    # os.environ['MY_PHONE'] = number1
+    # os.environ['TWILIO_PHONE'] = number2
+    # os.environ['account_sid'] = account_sid
+    # os.environ['auth_token'] = auth_token
     
 # Prompt the user for phone numbers
 
