@@ -22,7 +22,7 @@ def read_my_phone_numbers():
         return my_phone, twilio_phone, account_sid, auth_token
     
     except FileNotFoundError:
-        print("Phone number files not found.")
+        print("Some required information not found.")
         print("Please run the initial_setup.py script to set up your phone numbers.")
         exit()
     except Exception as e:

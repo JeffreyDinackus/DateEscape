@@ -1,6 +1,30 @@
 <h1><i> DateEscape</i> </h1>
 
+This project will allow you to use twilio to send yourself calls and text messages in order to get out of dates and other things. On the other end of the line will be a recording (any sound you want) really talking into your phone and you will recieve a stream of text messages. 
 
+This project will need a few things to work, and it is a command line interface application. 
+
+Things you will need: 
+
+- A t.2 micro AWS EC2 instance running ubuntu (this can be free, and is cheap otherwise)
+- A twilio account and phone number (free if you don't use it a ton, otherwise cheap) Note that you will need a mobile phone of your own for confirmation, they do this to avoid spammers I think.
+
+I will now walk you through step by step to create the application.
+
+First, create a twilio account.
+https://www.twilio.com/try-twilio
+
+Now follow this guide to set up your account and get a free phone number from twilio (necessary)
+https://www.twilio.com/docs/usage/tutorials/how-to-use-your-free-trial-account
+
+Next create a t.2 micro AWS ec2 Instance running ubuntu. Do only step 1 and 2 of this guide. Step 3 is required when you want to end the instance. 
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+
+
+
+
+git clone 
+sudo apt install python3-pip
 pip3 install twilio
 
 
