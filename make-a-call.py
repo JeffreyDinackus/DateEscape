@@ -28,10 +28,10 @@ def read_my_phone_numbers():
 # Call the function to read phone numbers
 my_phone, twilio_phone, account_sid, auth_token = read_my_phone_numbers()
 
-if my_phone == 'default_value' or twilio_phone == 'default_value' or account_sid == 'default_value' or auth_token == 'default_value':
-    print("One or more environment variables are not set.")
-    print("Please run the initial_setup.py script to set up your phone numbers.")
-    exit()
+# if my_phone == 'default_value' or twilio_phone == 'default_value' or account_sid == 'default_value' or auth_token == 'default_value':
+#     print("One or more environment variables are not set.")
+#     print("Please run the initial_setup.py script to set up your phone numbers.")
+#     exit()
 
 
 client = Client(account_sid, auth_token)
