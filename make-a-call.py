@@ -126,5 +126,3 @@ total_seconds = (hours * 3600) + (minutes * 60)
 # Start the timer
 start_timer(total_seconds)
 
-# make Twilio API requests
-
