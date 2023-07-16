@@ -13,8 +13,12 @@ def read_my_phone_numbers():
         
         with open('auth_token.txt', 'r') as file4:
             auth_token = file4.read().strip()
-        
-        return my_phone, twilio_phone, account_sid, auth_token
+
+        with open('assets_classic_link.txt', 'r') as file5:
+            assets_classic = file4.read().strip()
+
+
+        return my_phone, twilio_phone, account_sid, auth_token, assets_classic
     
     except FileNotFoundError:
         print("Phone number files not found.")
@@ -25,7 +29,7 @@ def read_my_phone_numbers():
         exit()
 
 # Call the function to read phone numbers
-my_phone, twilio_phone, account_sid, auth_token = read_my_phone_numbers()
+my_phone, twilio_phone, account_sid, auth_token, assets_classic = read_my_phone_numbers()
 
 # if my_phone == 'default_value' or twilio_phone == 'default_value' or account_sid == 'default_value' or auth_token == 'default_value':
 #     print("One or more environment variables are not set.")
@@ -44,7 +48,7 @@ if now == "now" or now == "Now" or now == "NOW":
     # make Twilio API requests
     call = client.calls.create(
             #this is hosted by twilio assets static hosting. 
-            url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
+            url=assets_classic,
             to=my_phone,
             from_=twilio_phone
             )
@@ -96,14 +100,14 @@ def start_timer(duration, text_frequentcy, text_time):
     if text_frequentcy == "none":
         call = client.calls.create(
             #this is hosted by twilio assets static hosting. 
-            url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
+            url=assets_classic,
             to=my_phone,
             from_=twilio_phone
             )
         time.sleep(50)
         call = client.calls.create(
             #this is hosted by twilio assets static hosting. 
-            url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
+            url=assets_classic,
             to=my_phone,
             from_=twilio_phone
             )
@@ -112,7 +116,7 @@ def start_timer(duration, text_frequentcy, text_time):
     # make Twilio API requests
     call = client.calls.create(
             #this is hosted by twilio assets static hosting. 
-            url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
+            url=assets_classic,
             to=my_phone,
             from_=twilio_phone
             )
@@ -142,7 +146,7 @@ def start_timer(duration, text_frequentcy, text_time):
     )
     call = client.calls.create(
         #this is hosted by twilio assets static hosting. 
-        url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
+        url=assets_classic,
         to=my_phone,
         from_=twilio_phone
     )
