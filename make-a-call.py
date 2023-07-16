@@ -120,8 +120,8 @@ def main():
         # Prompt the user for the duration of the timer
         sentinel1 = False
         while sentinel1 == False: 
-            minutes = int(input("How many minutes from now would you like to be called? "))
-            hours = int(input("How many hours from now would you like to be called? "))
+            minutes = int(input("How many minutes from now would you like to be called? max by default 60 "))
+            hours = int(input("How many hours from now would you like to be called? Max by default 72 "))
             # text_time = int(input("How long would you like to be texted for? "))
             if minutes < 0 or hours < 0 and minutes < 60 and hours < 72:
                 print("Time cannot be negative")
