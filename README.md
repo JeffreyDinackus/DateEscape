@@ -64,4 +64,10 @@ Troubleshooting
 This project makes a number of files holding your specifics. If you think you mistyped any info, you can edit the file and change the values.
 
 
+this program only allows minutes less than 60 and hours less than 72 in the future, you can change this easily by edting this line in make-a-call.py 
+
+if minutes < 0 or hours < 0 and minutes < 60 and hours < 72:
+
+
+
 <p> This was originally a hackathon project, named QuickEscape, for Hoohacks 2023. </p> <p> <a href='https://github.com/JeffreyDinackus/QuickEscape.tech'>https://github.com/JeffreyDinackus/QuickEscape.tech</a></p>

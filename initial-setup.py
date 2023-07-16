@@ -3,26 +3,12 @@
 import os
 
 def save_phone_numbers(number1, number2, account_sid, auth_token):
-    # Save phone numbers to files
-    with open('my_phone.txt', 'w') as file1:
-        file1.write(number1)
-    
-    with open('twilio_phone.txt', 'w') as file2:
-        file2.write(number2)
-
-    with open('account_sid.txt', 'w') as file3:
-        file3.write(account_sid)
-
-    with open('auth_token.txt', 'w') as file4:
-        file4.write(auth_token)
-
-    with open('assets_classic_link.txt', 'w') as file4:
-        file4.write(assets_classic)
-    # # Set phone numbers as environment variables
-    # os.environ['MY_PHONE'] = number1
-    # os.environ['TWILIO_PHONE'] = number2
-    # os.environ['account_sid'] = account_sid
-    # os.environ['auth_token'] = auth_token
+    # Set phone numbers as environment variables
+    os.environ['MY_PHONE'] = number1
+    os.environ['TWILIO_PHONE'] = number2
+    os.environ['TWILIO_ACCOUNT_SID'] = account_sid
+    os.environ['TWILIO_AUTH_TOKEN'] = auth_token
+    os.environ['ASSETS_CLASSIC_LINK'] = assets_classic
     
 # Prompt the user for phone numbers
 
