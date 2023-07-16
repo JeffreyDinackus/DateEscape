@@ -8,6 +8,7 @@ Things you will need:
 
 - A t.2 micro AWS EC2 instance running ubuntu (this can be free, and is cheap otherwise)
 - A twilio account and phone number (free if you don't use it a ton, otherwise cheap) Note that you will need a mobile phone of your own for confirmation, they do this to avoid spammers I think.
+- a recording to be played over the phone when you pick up (the default text content is that your dad is angry at you but this can be easily changed and is explained in this guide.)
 
 I will now walk you through step by step to create the application.
 
