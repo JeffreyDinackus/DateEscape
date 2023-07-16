@@ -18,8 +18,11 @@ def read_my_phone_numbers():
         
         with open('auth_token.txt', 'r') as file4:
             auth_token = file4.read().strip()
-        
-        return my_phone, twilio_phone, account_sid, auth_token
+
+        with open('assets_classic_link.txt', 'r') as file5:
+            assets_classic = file4.read().strip()
+
+        return my_phone, twilio_phone, account_sid, auth_token, assets_classic
     
     except FileNotFoundError:
         print("Some required information not found.")
@@ -30,19 +33,28 @@ def read_my_phone_numbers():
         exit()
 
 # Call the function to read phone numbers
-my_phone, twilio_phone, account_sid, auth_token = read_my_phone_numbers()
+my_phone, twilio_phone, account_sid, auth_token, assets_classic = read_my_phone_numbers()
 
 print("Testing connection to Twilio API...")
 client = Client(account_sid, auth_token)
 
-print("Using data:", my_phone, twilio_phone, account_sid, auth_token)
+print("Using data:", my_phone, twilio_phone, account_sid, auth_token, assets_classic)
+
+print("If all works well you will recieve a text message and a phone call.")
 
 message = client.messages \
 .create(
-  body='Connection established!',
+  body='Connection established (for text only)!',
   #hidden for privacy
   from_=twilio_phone,
   to=my_phone
 )
-
-print("if you don't recieve a text message, check your phone number files and try again.")
+print("text sent")
+call = client.calls.create(
+    #this is hosted by twilio assets static hosting. 
+    url=assets_classic,
+    to=my_phone,
+    from_=twilio_phone
+)
+print("call sent")
+print("if you don't recieve both a phone call and text message, check your files and try again.")

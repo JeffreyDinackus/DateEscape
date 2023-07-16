@@ -42,8 +42,8 @@ client = Client(account_sid, auth_token)
 
 # check if the user entered now, if so, execute immeadiately.
 print("when would you like to be called and texted?")
-now = input("If NOW type :")
-if now == "now" or now == "Now" or now == "NOW":
+now = input("If NOW type NOW:")
+if now.lower().strip() == "now":
     print("calling now")
     # make Twilio API requests
     call = client.calls.create(
@@ -81,7 +81,7 @@ if now == "now" or now == "Now" or now == "NOW":
 
 import time
 
-def start_timer(duration, text_frequentcy, text_time):
+def start_timer(duration, text_frequentcy):
     print("Timer started for", duration, "seconds.")
     sleeptime = ""
     if text_frequentcy == "frequently":
@@ -155,20 +155,16 @@ def start_timer(duration, text_frequentcy, text_time):
 # Prompt the user for the duration of the timer
 minutes = int(input("How many minutes from now would you like to be called? "))
 hours = int(input("How many hours from now would you like to be called? "))
-text_time = input("How long would you like to be texted for? ")
+text_time = int(input("How long would you like to be texted for? "))
 
 text_frequentcy = ""
 
-while text_frequentcy.lower() not in ["frequently", "moderately", "rarely", "none"]:
-    text_frequentcy = input("How often would you like to be texted? (more is more expensive), enter frequently, moderately, rarely, or none: ")
-
-if text_frequentcy == "frequently" or text_frequentcy == "Frequently" or text_frequentcy == "FREQUENTLY":
-    X = 1
-    print(X)
+while text_frequentcy.lower().strip() not in ["frequently", "moderately", "rarely", "none"]:
+    text_frequentcy = input("How often would you like to be texted? (more is more expensive), enter frequently, moderately, rarely, or none: Note: it needs to be exactly typed for this to work or it will ask again. CTRL+ C to exit")
 
 # Calculate the total duration in seconds
 total_seconds = (hours * 3600) + (minutes * 60)
 
 # Start the timer
-start_timer(total_seconds, text_frequentcy, text_time)
+start_timer(total_seconds, text_frequentcy)
 
