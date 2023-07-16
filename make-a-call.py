@@ -1,4 +1,3 @@
-import os
 from twilio.rest import Client
 
 def read_my_phone_numbers():
@@ -78,11 +77,38 @@ if now == "now" or now == "Now" or now == "NOW":
 
 import time
 
-def start_timer(duration):
+def start_timer(duration, text_frequentcy, text_time):
     print("Timer started for", duration, "seconds.")
+    sleeptime = ""
+    if text_frequentcy == "frequently":
+        sleeptime = 15
+
+    elif text_frequentcy == "moderately":
+        sleeptime = 30
+    
+    elif text_frequentcy == "rarely":  
+        sleeptime = 60
+    
     time.sleep(duration)
     print("Timer ended.")
     print("calling now")
+
+    if text_frequentcy == "none":
+        call = client.calls.create(
+            #this is hosted by twilio assets static hosting. 
+            url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
+            to=my_phone,
+            from_=twilio_phone
+            )
+        time.sleep(50)
+        call = client.calls.create(
+            #this is hosted by twilio assets static hosting. 
+            url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
+            to=my_phone,
+            from_=twilio_phone
+            )
+        exit()
+
     # make Twilio API requests
     call = client.calls.create(
             #this is hosted by twilio assets static hosting. 
@@ -97,7 +123,7 @@ def start_timer(duration):
             from_=twilio_phone,
             to=my_phone
     )
-    time.sleep(10)
+    time.sleep(sleeptime)
     message = client.messages \
     .create(
             body='GET HOME NOW.',
@@ -106,7 +132,7 @@ def start_timer(duration):
             to=my_phone
     )
 
-    time.sleep(10)
+    time.sleep(sleeptime)
     message = client.messages \
     .create(
             body='YOU WONT DRIVE FOR A MONTH',
@@ -114,15 +140,31 @@ def start_timer(duration):
             from_=twilio_phone,
             to=my_phone
     )
+    call = client.calls.create(
+        #this is hosted by twilio assets static hosting. 
+        url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
+        to=my_phone,
+        from_=twilio_phone
+    )
     exit()
 
 # Prompt the user for the duration of the timer
 minutes = int(input("How many minutes from now would you like to be called? "))
 hours = int(input("How many hours from now would you like to be called? "))
+text_time = input("How long would you like to be texted for? ")
+
+text_frequentcy = ""
+
+while text_frequentcy.lower() not in ["frequently", "moderately", "rarely", "none"]:
+    text_frequentcy = input("How often would you like to be texted? (more is more expensive), enter frequently, moderately, rarely, or none: ")
+
+if text_frequentcy == "frequently" or text_frequentcy == "Frequently" or text_frequentcy == "FREQUENTLY":
+    X = 1
+    print(X)
 
 # Calculate the total duration in seconds
 total_seconds = (hours * 3600) + (minutes * 60)
 
 # Start the timer
-start_timer(total_seconds)
+start_timer(total_seconds, text_frequentcy, text_time)
 

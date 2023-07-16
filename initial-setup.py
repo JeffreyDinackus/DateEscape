@@ -16,6 +16,8 @@ def save_phone_numbers(number1, number2, account_sid, auth_token):
     with open('auth_token.txt', 'w') as file4:
         file4.write(auth_token)
 
+    with open('assets_classic_link.txt', 'w') as file4:
+        file4.write(assets_classic)
     # # Set phone numbers as environment variables
     # os.environ['MY_PHONE'] = number1
     # os.environ['TWILIO_PHONE'] = number2
@@ -34,11 +36,15 @@ number1 = input("Enter the phone number you would like to call: ")
 number2 = input("Enter your Twilio phone number: ")
 account_sid = input("Enter your Twilio Account Sid: ")
 auth_token = input("Enter your Twilio Auth Token (remember to keep this secret): ")
+assets_classic = input("Enter your link to assets classic on twilio. This is the link to the mp3 file you want to play. You will need the full link. ")
 
 print("you have entered the following: ")
 print("Your Phone Number:", number1)
 print("Twilio Phone Number:", number2)
 print("Twilio Account SID:", account_sid)
 print("Twilio Auth Token:", auth_token)
-# Call the function to save phone numbers and set environment variables
-save_phone_numbers(number1, number2, account_sid, auth_token)
+print("Twilio Assets Classic Link:", assets_classic)
+
+
+# Call the function to save phone numbers
+save_phone_numbers(number1, number2, account_sid, auth_token, assets_classic)

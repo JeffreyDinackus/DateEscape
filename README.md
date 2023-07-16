@@ -21,11 +21,28 @@ Next create a t.2 micro AWS ec2 Instance running ubuntu. Do only step 1 and 2 of
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 
 
+Enter these commands in your EC2 instance terminal.
 
+git clone <repository .git link>
 
-git clone 
 sudo apt install python3-pip
+
 pip3 install twilio
+
+Then enter
+
+python3 initial-setup.py
+python3 test-connection.py
+if you recieve a text message after entering that last command, you are good to go. 
+
+
+To start the script for real usage, enter
+
+python3 make-a-call.py
+
+Troubleshooting
+
+This project makes a number of files holding your specifics. If you think you mistyped any info, you can edit the file and change the values.
 
 
 <p> This was originally a hackathon project, named QuickEscape, for Hoohacks 2023. </p> <p> <a href='https://github.com/JeffreyDinackus/QuickEscape.tech'>https://github.com/JeffreyDinackus/QuickEscape.tech</a></p>
