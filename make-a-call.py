@@ -118,6 +118,7 @@ def main():
             start_timer(0, "none", my_phone, twilio_phone, account_sid, auth_token, assets_classic)  # Call start_timer with 0 duration for immediate action
 
         # Prompt the user for the duration of the timer
+        sentinel1 = False
         while sentinel1 == False: 
             minutes = int(input("How many minutes from now would you like to be called? "))
             hours = int(input("How many hours from now would you like to be called? "))
