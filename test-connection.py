@@ -18,11 +18,11 @@ def read_environment_variables():
 
     return my_phone, twilio_phone, account_sid, auth_token, assets_classic
 
-
+print(os.environ)
 # Call the function to read phone numbers
 my_phone, twilio_phone, account_sid, auth_token, assets_classic = read_environment_variables()
 
-print(os.environ)
+
 
 
 print("Testing connection to Twilio API...")

@@ -24,15 +24,14 @@ def main():
     twilio_phone = input("Enter your Twilio phone number with the country code in this format (USA country code is +1): +1xxxxxxxxxx ")
     account_sid = input("Enter your Twilio Account Sid: ")
     auth_token = input("Enter your Twilio Auth Token (remember to keep this secret): ")
-    assets_classic = input("Enter your link to assets classic on twilio. This is the link to the mp3 file you want to play. You will need the full link. ")
+    assets_classic = input("Enter your link to assets classic on twilio. This is the link to the mp3 file you want to play. You will need the full link and upload it yourself. (under functions and assets -> Assets(classic), a url) ")
 
     print("you have entered the following: ")
     print("Your Phone Number:", my_phone)
-
     print("Twilio Account SID:", account_sid)
     print("Twilio Auth Token:", auth_token)
     print("Twilio Phone Number:", twilio_phone)
-    print("Twilio Assets Classic Link: (under functions and assets -> Assets(classic), a url)", assets_classic)
+    print("Twilio Assets Classic Link: ", assets_classic)
 
 
     # Call the function to save phone numbers
