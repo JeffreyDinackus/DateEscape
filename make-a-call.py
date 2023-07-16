@@ -130,7 +130,7 @@ def main():
 
         text_frequency = ""
         while text_frequency.lower().strip() not in ["frequently", "moderately", "rarely", "none"]:
-            text_frequency = input("How often would you like to be texted? (more is more expensive), enter frequently, moderately, rarely, or none: Note: it needs to be exactly typed for this to work or it will ask again. CTRL+ C to exit")
+            text_frequency = input("How often would you like to be texted? (more is quicker), enter frequently, moderately, rarely, or none: Note: it needs to be exactly typed for this to work or it will ask again. CTRL+ C to exit")
 
         # Calculate the total duration in seconds
         total_seconds = (hours * 3600) + (minutes * 60)
