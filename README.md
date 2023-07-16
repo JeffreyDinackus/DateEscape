@@ -28,6 +28,8 @@ Copy the Twilio Phone Number you claim as well as the account sid, and auth on t
 Next create a t.2 micro AWS ec2 Instance running ubuntu. Do only step 1 and 2 of this guide. Step 3 is required when you want to end the instance. 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 
+it's advised by the developer that you keep the instance running for multiple uses, as long as it is t.2 micro and you created your account within the last year and don't have any other instances running, it should be free. 
+
 Enter these commands in your EC2 instance terminal.
 
 git clone <repository .git link>
