@@ -1,5 +1,8 @@
 <h1><i>DateEscape</i> </h1>
 
+Release Version: 1.0
+
+
 This project will allow you to use twilio to send yourself calls and text messages in order to get out of dates and other things. On the other end of the line will be a recording (any sound you want) really talking into your phone and you will recieve a stream of text messages. 
 
 This project will need a few things to work, and it is a command line interface application. 
@@ -32,6 +35,10 @@ it's advised by the developer that you keep the instance running for multiple us
 
 Enter these commands in your EC2 instance terminal.
 
+If this next command doesn't work, you will need to copy the .git link yourself from the DateEscape github page, look for a green button that says "code" and there will be a link inside of it when you click on it.
+git clone https://github.com/JeffreyDinackus/DateEscape.git
+
+You don't need this command unless the last one didn't work, you replace the <> with the .git link for DateEscape.
 git clone <repository .git link>
 
 sudo apt install python3-pip
