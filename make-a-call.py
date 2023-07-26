@@ -45,18 +45,18 @@ def read_phone_numbers_from_files():
 
 
 def start_timer(duration, text_frequency, my_phone, twilio_phone, account_sid, auth_token, assets_classic):
-    client = Client(account_sid, auth_token)
     sleeptime = ""
     if text_frequency == "frequently":
-        sleeptime = 15
-    elif text_frequency == "moderately":
         sleeptime = 30
-    elif text_frequency == "rarely":
+    elif text_frequency == "moderately":
         sleeptime = 60
+    elif text_frequency == "rarely":
+        sleeptime = 120
     elif text_frequency == "none":
-        sleeptime = 3
+        sleeptime = 30
     else:
         print("warning, no text frequency selected, defaulting to 30 seconds")
+        sleeptime = 30
     if duration == None:
         print("Duration cannot be null")
         exit()
@@ -79,29 +79,29 @@ def call(my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleept
     # Create Twilio client
     client = Client(account_sid, auth_token)
     # Make Twilio API requests
-    call = client.calls.create(
+    client.calls.create(
         url=assets_classic,
         to=my_phone,
         from_=twilio_phone
     )
-    message = client.messages.create(
+    client.messages.create(
         body='GET HOME RIGHT NOW.',
         from_=twilio_phone,
         to=my_phone
     )
     time.sleep(sleeptime)
-    message = client.messages.create(
+    client.messages.create(
         body='GET HOME NOW.',
         from_=twilio_phone,
         to=my_phone
     )
     time.sleep(sleeptime)
-    message = client.messages.create(
+    client.messages.create(
         body='YOU WON\'T DRIVE FOR A MONTH',
         from_=twilio_phone,
         to=my_phone
     )
-    call = client.calls.create(
+    client.calls.create(
         url=assets_classic,
         to=my_phone,
         from_=twilio_phone
