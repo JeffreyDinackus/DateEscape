@@ -1,5 +1,8 @@
 <h1><i>DateEscape</i> </h1>
 
+Release Version: 1.0
+
+
 This project will allow you to use twilio to send yourself calls and text messages in order to get out of dates and other things. On the other end of the line will be a recording (any sound you want) really talking into your phone and you will recieve a stream of text messages. 
 
 This project will need a few things to work, and it is a command line interface application. 
@@ -12,24 +15,33 @@ Things you will need:
 
 I will now walk you through step by step to create the application.
 
+If you ever run into problems during installation, search the error code or what you need help with or use ChatGPT.
+
 First, create a twilio account. They should give you some free credit you can use.
 https://www.twilio.com/try-twilio
 
 Now follow this guide to set up your account and get a free phone number from twilio (necessary)
 https://www.twilio.com/docs/usage/tutorials/how-to-use-your-free-trial-account
 
+Copy the Twilio Phone Number you claim as well as the account sid, and auth on the console page, you will need later. 
+
 Record a voice message to play on the call when you call
 Then, upload to Twilio Assets Classic. It will generate a link for you to use when you set up the connection to your instance.
 
-Copy the Twilio Phone Number you claim as well as the account sid, and auth on the console page, you will need later. 
 
 
 
 Next create a t.2 micro AWS ec2 Instance running ubuntu. Do only step 1 and 2 of this guide. Step 3 is required when you want to end the instance. 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 
+it's advised by the developer that you keep the instance running for multiple uses, as long as it is t.2 micro and you created your account within the last year and don't have any other instances running, it should be free. 
+
 Enter these commands in your EC2 instance terminal.
 
+If this next command doesn't work, you will need to copy the .git link yourself from the DateEscape github page, look for a green button that says "code" and there will be a link inside of it when you click on it.
+git clone https://github.com/JeffreyDinackus/DateEscape.git
+
+You don't need this command unless the last one didn't work, you replace the <> with the .git link for DateEscape.
 git clone <repository .git link>
 
 sudo apt install python3-pip
@@ -69,6 +81,8 @@ this program only allows minutes less than 60 and hours less than 72 in the futu
 
 if minutes < 0 or hours < 0 and minutes < 60 and hours < 72:
 
+
+If you would like to instead use environmental varaibles, you'll have to figure that out yourself. Perhaps in the future that will be added. Contributions welcome!
 
 
 <p> This was originally a hackathon project, named QuickEscape, for Hoohacks 2023. </p> <p> <a href='https://github.com/JeffreyDinackus/QuickEscape.tech'>https://github.com/JeffreyDinackus/QuickEscape.tech</a></p>
