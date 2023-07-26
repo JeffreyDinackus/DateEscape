@@ -11,7 +11,8 @@ Things you will need:
 
 - A t.2 micro AWS EC2 instance running ubuntu (this can be free, and is cheap otherwise)
 - A twilio account and phone number (free if you don't use it a ton, otherwise cheap) Note that you will need a mobile phone of your own for confirmation, they do this to avoid spammers I think.
-- a recording to be played over the phone when you pick up (the default text content is that your dad is angry at you but this can be easily changed and is explained in this guide.)
+- A recording to be played over the phone when you pick up (the default text content is that your dad is angry at you but this can be easily changed and is explained in this guide.)
+- You need to verify your phone number so you can send texts and calls to yourself if you have a trial account. 
 
 I will now walk you through step by step to create the application.
 
@@ -23,7 +24,10 @@ https://www.twilio.com/try-twilio
 Now follow this guide to set up your account and get a free phone number from twilio (necessary)
 https://www.twilio.com/docs/usage/tutorials/how-to-use-your-free-trial-account
 
-Copy the Twilio Phone Number you claim as well as the account sid, and auth on the console page, you will need later. 
+Verify your personal phone number, you can reference this link
+https://support.twilio.com/hc/en-us/articles/223180048-How-to-Add-and-Remove-a-Verified-Phone-Number-or-Caller-ID-with-Twilio
+
+Copy the Twilio Phone Number you claim as well as the account sid, and auth on the console page to a .txt on your computer, you will need later. 
 
 Record a voice message to play on the call when you call
 Then, upload to Twilio Assets Classic. It will generate a link for you to use when you set up the connection to your instance.
@@ -62,7 +66,7 @@ python3 make-a-call.py
 please note: the text messages are currently set up to be like they are from a angry dad. Feel free to change them. You would need to change the "body" field of the Twilio API requests. 
 
 
-Example: 
+Example(this is a text):
     message = client.messages \
     .create(
             body='YOU WONT DRIVE FOR A MONTH', // this one, just change the text between the quotes.
@@ -71,6 +75,14 @@ Example:
             to=my_phone
     )
 
+You have complete control over the order of texts and calls and what is said via text or said over the phone via your recording. Modify the code by adding more or less texts in your script(copy and paste twilio API requests) and more or less calls (copy and paste Call API requests). 
+
+Example(this is a call):
+    call = client.calls.create(
+        url=assets_classic,
+        to=my_phone,
+        from_=twilio_phone
+    )
 
 Troubleshooting
 
