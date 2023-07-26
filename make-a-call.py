@@ -53,33 +53,31 @@ def start_timer(duration, text_frequency, my_phone, twilio_phone, account_sid, a
         sleeptime = 30
     elif text_frequency == "rarely":
         sleeptime = 60
+    elif text_frequency == "none":
+        sleeptime = 3
+    else:
+        print("warning, no text frequency selected, defaulting to 30 seconds")
     if duration == None:
         print("Duration cannot be null")
         exit()
     elif duration == 0:
         print("Calling now")
+        call(text_frequency, my_phone, twilio_phone, account_sid, auth_token, assets_classic)
+
     elif type(duration) != int:
         print("Duration must be an integer")
+        exit()
     else:
         print("Timer started for", duration, "seconds.")
         time.sleep(duration)
         print("Timer ended.")
         print("Calling now")
+        # make the call
+        call(text_frequency, my_phone, twilio_phone, account_sid, auth_token, assets_classic)
 
-    if text_frequency == "none":
-        call = client.calls.create(
-            url=assets_classic,
-            to=my_phone,
-            from_=twilio_phone
-        )
-        time.sleep(50)
-        call = client.calls.create(
-            url=assets_classic,
-            to=my_phone,
-            from_=twilio_phone
-        )
-        exit()
-
+def call(my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleeptime=30):
+    # Create Twilio client
+    client = Client(account_sid, auth_token)
     # Make Twilio API requests
     call = client.calls.create(
         url=assets_classic,
@@ -108,15 +106,13 @@ def start_timer(duration, text_frequency, my_phone, twilio_phone, account_sid, a
         to=my_phone,
         from_=twilio_phone
     )
-    exit()
+    exit()        
+
 
 def main():
     try:
         # Read environment variables
         my_phone, twilio_phone, account_sid, auth_token, assets_classic = read_phone_numbers_from_files()
-
-        # Create Twilio client
-        client = Client(account_sid, auth_token)
 
         # Check if the user wants to be called and texted immediately
         print("When would you like to be called and texted?")
