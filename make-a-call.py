@@ -46,7 +46,6 @@ def read_phone_numbers_from_files():
 
 def start_timer(duration, text_frequency, my_phone, twilio_phone, account_sid, auth_token, assets_classic):
     client = Client(account_sid, auth_token)
-    print("Timer started for", duration, "seconds.")
     sleeptime = ""
     if text_frequency == "frequently":
         sleeptime = 15
@@ -54,10 +53,18 @@ def start_timer(duration, text_frequency, my_phone, twilio_phone, account_sid, a
         sleeptime = 30
     elif text_frequency == "rarely":
         sleeptime = 60
-    
-    time.sleep(duration)
-    print("Timer ended.")
-    print("Calling now")
+    if duration == None:
+        print("Duration cannot be null")
+        exit()
+    elif duration == 0:
+        print("Calling now")
+    elif type(duration) != int:
+        print("Duration must be an integer")
+    else:
+        print("Timer started for", duration, "seconds.")
+        time.sleep(duration)
+        print("Timer ended.")
+        print("Calling now")
 
     if text_frequency == "none":
         call = client.calls.create(
