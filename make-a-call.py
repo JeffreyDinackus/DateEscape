@@ -79,33 +79,40 @@ def call(my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleept
     # Create Twilio client
     client = Client(account_sid, auth_token)
     # Make Twilio API requests
-    client.calls.create(
+    call = client.calls.create(
         url=assets_classic,
         to=my_phone,
         from_=twilio_phone
     )
-    client.messages.create(
+    print(call.sid)
+    message = client.messages \
+        .create(
         body='GET HOME RIGHT NOW.',
         from_=twilio_phone,
         to=my_phone
     )
     time.sleep(sleeptime)
-    client.messages.create(
+    message = client.messages \
+        .create(
         body='GET HOME NOW.',
         from_=twilio_phone,
         to=my_phone
     )
+    print(message.sid)
     time.sleep(sleeptime)
-    client.messages.create(
+    message = client.messages \
+        .create(
         body='YOU WON\'T DRIVE FOR A MONTH',
         from_=twilio_phone,
         to=my_phone
     )
-    client.calls.create(
+    print(message.sid)
+    call = client.calls.create(
         url=assets_classic,
         to=my_phone,
         from_=twilio_phone
     )
+    print(call.sid)
     exit()        
 
 

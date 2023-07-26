@@ -46,7 +46,6 @@ def read_phone_numbers_from_files():
         print("An error occurred while reading phone numbers:", str(e))
         exit()
 
-print(os.environ)
 # Call the function to read phone numbers
 my_phone, twilio_phone, account_sid, auth_token, assets_classic = read_phone_numbers_from_files()
 
