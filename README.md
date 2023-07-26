@@ -71,8 +71,7 @@ please note: the text messages are currently set up to be like they are from a a
 Example(this is a text):
     message = client.messages \
     .create(
-            body='YOU WONT DRIVE FOR A MONTH', // this one, just change the text between the quotes.
-            #hidden for privacy
+            body='YOU WONT DRIVE FOR A MONTH', # this one, just change the text between the quotes.
             from_=twilio_phone,
             to=my_phone
     )
