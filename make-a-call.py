@@ -73,7 +73,7 @@ def start_timer(duration, text_frequency, my_phone, twilio_phone, account_sid, a
         print("Timer ended.")
         print("Calling now")
         # make the call
-        call(text_frequency, my_phone, twilio_phone, account_sid, auth_token, assets_classic)
+        call(text_frequency, my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleeptime)
 
 def call(my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleeptime=30):
     # Create Twilio client
