@@ -55,7 +55,9 @@ pip3 install twilio
 Then enter
 
 python3 initial-setup.py
+
 python3 test-connection.py
+
 if you recieve a text message after entering that last command, you are good to go. 
 
 
