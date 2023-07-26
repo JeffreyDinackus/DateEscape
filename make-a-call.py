@@ -62,7 +62,7 @@ def start_timer(duration, text_frequency, my_phone, twilio_phone, account_sid, a
         exit()
     elif duration == 0:
         print("Calling now")
-        call(text_frequency, my_phone, twilio_phone, account_sid, auth_token, assets_classic)
+        call(my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleeptime)
 
     elif type(duration) != int:
         print("Duration must be an integer")
@@ -76,7 +76,7 @@ def start_timer(duration, text_frequency, my_phone, twilio_phone, account_sid, a
         call(text_frequency, my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleeptime)
 
 def call(my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleeptime=30):
-    print(account_sid)
+    
     # Create Twilio client
     client = Client(account_sid, auth_token)
     # Make Twilio API requests
