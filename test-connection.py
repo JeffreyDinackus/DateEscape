@@ -68,11 +68,11 @@ client.messages.create(
     to=my_phone
 )
 print("text sent")
-client.calls.create(
-    #this is hosted by twilio assets static hosting. 
+call = client.calls.create(
     url=assets_classic,
     to=my_phone,
     from_=twilio_phone
 )
+
 print("call sent")
 print("if you don't recieve both a phone call and text message, check your files and try again.")
