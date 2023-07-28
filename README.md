@@ -32,10 +32,10 @@ Copy the Twilio Phone Number you claim as well as the account sid, and auth on t
 Record a voice message to play on the call when you call
 Then, upload to Twilio Assets Classic. It will generate a link for you to use when you set up the connection to your instance.
 
+It is reccomended that you save your twilio phone number as a contact with a name to correspond with your recording, for added realism. This can be changed by changing the name of the contact at any time. Otherwise, it will show up as a 1888 number and will look like spam. 
 
 
-
-Next create a t.2 micro AWS ec2 Instance running ubuntu. Do only step 1 and 2 of this guide. Step 3 is required when you want to end the instance. 
+Next create a t.2 micro AWS ec2 Instance running ubuntu. Do only step 1 and 2 of this guide. Step 3 is required when you want to end the instance. Do not use Amazon Linux 2.
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 
 it's advised by the developer that you keep the instance running for multiple uses, as long as it is t.2 micro and you created your account within the last year and don't have any other instances running, it should be free. 
