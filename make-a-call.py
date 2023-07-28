@@ -45,24 +45,25 @@ def read_phone_numbers_from_files():
 
 
 def start_timer(duration, text_frequency, my_phone, twilio_phone, account_sid, auth_token, assets_classic):
-    client = Client(account_sid, auth_token)
     sleeptime = ""
+    # do not set lower than 15-30 seconds because of Twilio's API rate limits. You can get your account shut down. 
     if text_frequency == "frequently":
-        sleeptime = 15
-    elif text_frequency == "moderately":
         sleeptime = 30
-    elif text_frequency == "rarely":
+    elif text_frequency == "moderately":
         sleeptime = 60
+    elif text_frequency == "rarely":
+        sleeptime = 120
     elif text_frequency == "none":
-        sleeptime = 3
+        sleeptime = 30
     else:
         print("warning, no text frequency selected, defaulting to 30 seconds")
+        sleeptime = 30
     if duration == None:
         print("Duration cannot be null")
         exit()
     elif duration == 0:
         print("Calling now")
-        call(text_frequency, my_phone, twilio_phone, account_sid, auth_token, assets_classic)
+        call(my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleeptime)
 
     elif type(duration) != int:
         print("Duration must be an integer")
@@ -73,9 +74,10 @@ def start_timer(duration, text_frequency, my_phone, twilio_phone, account_sid, a
         print("Timer ended.")
         print("Calling now")
         # make the call
-        call(text_frequency, my_phone, twilio_phone, account_sid, auth_token, assets_classic)
+        call(my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleeptime)
 
 def call(my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleeptime=30):
+    print(my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleeptime)
     # Create Twilio client
     client = Client(account_sid, auth_token)
     # Make Twilio API requests
@@ -84,28 +86,35 @@ def call(my_phone, twilio_phone, account_sid, auth_token, assets_classic, sleept
         to=my_phone,
         from_=twilio_phone
     )
-    message = client.messages.create(
+    print(call.sid)
+    message = client.messages \
+        .create(
         body='GET HOME RIGHT NOW.',
         from_=twilio_phone,
         to=my_phone
     )
     time.sleep(sleeptime)
-    message = client.messages.create(
+    message = client.messages \
+        .create(
         body='GET HOME NOW.',
         from_=twilio_phone,
         to=my_phone
     )
+    print(message.sid)
     time.sleep(sleeptime)
-    message = client.messages.create(
+    message = client.messages \
+        .create(
         body='YOU WON\'T DRIVE FOR A MONTH',
         from_=twilio_phone,
         to=my_phone
     )
+    print(message.sid)
     call = client.calls.create(
         url=assets_classic,
         to=my_phone,
         from_=twilio_phone
     )
+    print(call.sid)
     exit()        
 
 
@@ -123,8 +132,8 @@ def main():
         # Prompt the user for the duration of the timer
         sentinel1 = False
         while sentinel1 == False: 
-            minutes = int(input("How many minutes from now would you like to be called? max by default 60 "))
-            hours = int(input("How many hours from now would you like to be called? Max by default 72 "))
+            minutes = int(input("How many minutes from now would you like to be called? max by default 60: "))
+            hours = int(input("How many hours from now would you like to be called? Max by default 72: "))
             # text_time = int(input("How long would you like to be texted for? "))
             if minutes < 0 or hours < 0 and minutes < 60 and hours < 72:
                 print("Time cannot be negative")
@@ -133,7 +142,7 @@ def main():
 
         text_frequency = ""
         while text_frequency.lower().strip() not in ["frequently", "moderately", "rarely", "none"]:
-            text_frequency = input("How often would you like to be texted? (more is quicker), enter frequently, moderately, rarely, or none: Note: it needs to be exactly typed for this to work or it will ask again. CTRL+ C to exit")
+            text_frequency = input("How often would you like to be texted? (more is quicker), enter frequently, moderately, rarely, or none: Note: it needs to be exactly typed for this to work or it will ask again. CTRL+ C to exit: ")
 
         # Calculate the total duration in seconds
         total_seconds = (hours * 3600) + (minutes * 60)

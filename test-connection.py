@@ -46,7 +46,6 @@ def read_phone_numbers_from_files():
         print("An error occurred while reading phone numbers:", str(e))
         exit()
 
-print(os.environ)
 # Call the function to read phone numbers
 my_phone, twilio_phone, account_sid, auth_token, assets_classic = read_phone_numbers_from_files()
 
@@ -60,19 +59,19 @@ print("Using data:", my_phone, twilio_phone, account_sid, auth_token, assets_cla
 
 print("If all works well you will recieve a text message and a phone call.")
 
-message = client.messages \
-.create(
-  body='Connection established (for text only)!',
-  #hidden for privacy
-  from_=twilio_phone,
-  to=my_phone
+client.messages.create(
+
+    body='Connection established (for text only)!',
+    # hidden for privacy
+    from_=twilio_phone,
+    to=my_phone
 )
 print("text sent")
 call = client.calls.create(
-    #this is hosted by twilio assets static hosting. 
     url=assets_classic,
     to=my_phone,
     from_=twilio_phone
 )
+
 print("call sent")
 print("if you don't recieve both a phone call and text message, check your files and try again.")
