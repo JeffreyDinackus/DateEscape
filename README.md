@@ -15,11 +15,29 @@ This project will need a few things to work, and it is a command line interface 
 - A recording to be played over the phone when you pick up (the default text content is that your dad is angry at you but this can be easily changed and is explained in this guide.)
 - You need to verify your phone number so you can send texts and calls to yourself if you have a trial account. 
 
-### Setup
+## Setup
 
 I will now walk you through step by step to create the application.
 
 If you ever run into problems during installation, search the error code or what you need help with or use ChatGPT.
+
+### What you will need
+
+A twilio account and phone number that is verified to your phone number.
+
+A AWS account with a t.2 micro EC2 server running setup with this github repo. 
+
+
+### cost of operation
+
+For the individual user, the cost will be free or close to it. THis is because Twilio gives you free API credits when you create a account, and a single t.2 micro EC2 instance is free. 
+
+
+
+
+
+
+### Twilio Setup
 
 First, create a twilio account. They should give you some free credit you can use.
 https://www.twilio.com/try-twilio
@@ -37,6 +55,7 @@ Then, upload to Twilio Assets Classic. It will generate a link for you to use wh
 
 It is reccomended that you save your twilio phone number as a contact with a name to correspond with your recording, for added realism. This can be changed by changing the name of the contact at any time. Otherwise, it will show up as a 1888 number and will look like spam. 
 
+### AWS Setup
 
 Next create a t.2 micro AWS ec2 Instance running ubuntu. Do only step 1 and 2 of this guide. Step 3 is required when you want to end the instance. Do not use Amazon Linux 2.
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
@@ -46,32 +65,34 @@ it's advised by the developer that you keep the instance running for multiple us
 Enter these commands in your EC2 instance terminal.
 
 If this next command doesn't work, you will need to copy the .git link yourself from the DateEscape github page, look for a green button that says "code" and there will be a link inside of it when you click on it.
-git clone https://github.com/JeffreyDinackus/DateEscape.git
+> git clone https://github.com/JeffreyDinackus/DateEscape.git
 
 You don't need this command unless the last one didn't work, you replace the <> with the .git link for DateEscape.
-git clone <repository .git link>
+> git clone <repository .git link>
 
-sudo apt install python3-pip
+> sudo apt install python3-pip
 
-pip3 install twilio
+> pip3 install twilio
 
 Then enter
 
-python3 initial-setup.py
+> python3 initial-setup.py
 
-python3 test-connection.py
+```python python3 test-connection.py ```
 
 if you recieve a text message after entering that last command, you are good to go. 
 
 
 To start the script for real usage, enter
 
-python3 make-a-call.py
+``` python python3 make-a-call.py ```
 
 please note: the text messages are currently set up to be like they are from a angry dad. Feel free to change them. You would need to change the "body" field of the Twilio API requests. 
 
 
 Example(this is a text):
+
+
 ''' python
     message = client.messages \
     .create(
@@ -98,10 +119,12 @@ This project makes a number of files holding your specifics. If you think you mi
 
 this program only allows minutes less than 60 and hours less than 72 in the future, you can change this easily by edting this line in make-a-call.py 
 
-if minutes < 0 or hours < 0 and minutes < 60 and hours < 72:
+> if minutes < 0 or hours < 0 and minutes < 60 and hours < 72:
 
 
 If you would like to instead use environmental varaibles, you'll have to figure that out yourself. Perhaps in the future that will be added. Contributions welcome!
 
+### Project history
 
-<p> This was originally a hackathon project, named QuickEscape, for Hoohacks 2023. </p> <p> <a href='https://github.com/JeffreyDinackus/QuickEscape.tech'>https://github.com/JeffreyDinackus/QuickEscape.tech</a></p>
+
+This was originally a hackathon project, named QuickEscape, for Hoohacks 2023. <a href='https://github.com/JeffreyDinackus/QuickEscape.tech'>https://github.com/JeffreyDinackus/QuickEscape.tech</a>
