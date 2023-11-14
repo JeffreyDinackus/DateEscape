@@ -68,15 +68,16 @@ If this next command doesn't work, you will need to copy the .git link yourself 
 > git clone https://github.com/JeffreyDinackus/DateEscape.git
 
 You don't need this command unless the last one didn't work, you replace the <> with the .git link for DateEscape.
-> git clone <repository .git link>
 
-> sudo apt install python3-pip
+```console git clone <repository .git link> ```
 
-> pip3 install twilio
+``` console sudo apt install python3-pip ```
+
+```console pip3 install twilio ```
 
 Then enter
 
-> python3 initial-setup.py
+```python python3 initial-setup.py ```
 
 ```python python3 test-connection.py ```
 
