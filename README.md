@@ -103,8 +103,11 @@ Example(this is a text):
 
 You have complete control over the order of texts and calls and what is said via text or said over the phone via your recording. Modify the code by adding more or less texts in your script(copy and paste twilio API requests) and more or less calls (copy and paste Call API requests). 
 
-``` python 
+
 Example(this is a call):
+
+``` python 
+
     call = client.calls.create(
         url=assets_classic,
         to=my_phone,
