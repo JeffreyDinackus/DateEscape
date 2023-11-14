@@ -93,13 +93,13 @@ please note: the text messages are currently set up to be like they are from a a
 Example(this is a text):
 
 
-''' python
-    message = client.messages \
+``` python message = client.messages \
     .create(
             body='YOU WONT DRIVE FOR A MONTH', # this one, just change the text between the quotes.
             from_=twilio_phone,
             to=my_phone
     )
+```
 
 You have complete control over the order of texts and calls and what is said via text or said over the phone via your recording. Modify the code by adding more or less texts in your script(copy and paste twilio API requests) and more or less calls (copy and paste Call API requests). 
 
