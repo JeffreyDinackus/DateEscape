@@ -69,9 +69,9 @@ If this next command doesn't work, you will need to copy the .git link yourself 
 
 You don't need this command unless the last one didn't work, you replace the <> with the .git link for DateEscape.
 
-``` console git clone <repository .git link> ```
+```console git clone <repository .git link> ```
 
-``` console sudo apt install python3-pip ```
+```console sudo apt install python3-pip ```
 
 ```console pip3 install twilio ```
 
@@ -86,7 +86,7 @@ if you recieve a text message after entering that last command, you are good to 
 
 To start the script for real usage, enter
 
-``` python python3 make-a-call.py ```
+```python python3 make-a-call.py ```
 
 please note: the text messages are currently set up to be like they are from a angry dad. Feel free to change them. You would need to change the "body" field of the Twilio API requests. 
 
