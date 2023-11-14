@@ -72,6 +72,7 @@ please note: the text messages are currently set up to be like they are from a a
 
 
 Example(this is a text):
+'''console
     message = client.messages \
     .create(
             body='YOU WONT DRIVE FOR A MONTH', # this one, just change the text between the quotes.
@@ -81,14 +82,16 @@ Example(this is a text):
 
 You have complete control over the order of texts and calls and what is said via text or said over the phone via your recording. Modify the code by adding more or less texts in your script(copy and paste twilio API requests) and more or less calls (copy and paste Call API requests). 
 
+''' console 
 Example(this is a call):
     call = client.calls.create(
         url=assets_classic,
         to=my_phone,
         from_=twilio_phone
     )
+'''
 
-Troubleshooting
+### Troubleshooting
 
 This project makes a number of files holding your specifics. If you think you mistyped any info, you can edit the file and change the values.
 
