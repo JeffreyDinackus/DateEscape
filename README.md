@@ -8,34 +8,22 @@ This project will allow you to use twilio to send yourself calls and text messag
 
 This project will need a few things to work, and it is a command line interface application but if you are using EC2, it can be accessed anywhere. 
 
-### Things you will need: 
+## Things you will need: 
 
 - A t.2 micro AWS EC2 instance running ubuntu (this can be free, and is cheap otherwise)
 - A twilio account and phone number (free if you don't use it a ton, otherwise cheap) Note that you will need a mobile phone of your own for confirmation, they do this to avoid spammers I think.
 - A recording to be played over the phone when you pick up (the default text content is that your dad is angry at you but this can be easily changed and is explained in this guide.)
 - You need to verify your phone number so you can send texts and calls to yourself if you have a trial account. 
 
+### cost of operation
+
+For the individual user, the cost will be free or close to it. THis is because Twilio gives you free API credits when you create a account, and a single t.2 micro EC2 instance is free. 
+
 ## Setup
 
 I will now walk you through step by step to create the application.
 
 If you ever run into problems during installation, search the error code or what you need help with or use ChatGPT.
-
-### What you will need
-
-A twilio account and phone number that is verified to your phone number.
-
-A AWS account with a t.2 micro EC2 server running setup with this github repo. 
-
-
-### cost of operation
-
-For the individual user, the cost will be free or close to it. THis is because Twilio gives you free API credits when you create a account, and a single t.2 micro EC2 instance is free. 
-
-
-
-
-
 
 ### Twilio Setup
 
