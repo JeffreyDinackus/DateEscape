@@ -69,7 +69,7 @@ If this next command doesn't work, you will need to copy the .git link yourself 
 
 You don't need this command unless the last one didn't work, you replace the <> with the .git link for DateEscape.
 
-```console git clone <repository .git link> ```
+``` console git clone <repository .git link> ```
 
 ``` console sudo apt install python3-pip ```
 
